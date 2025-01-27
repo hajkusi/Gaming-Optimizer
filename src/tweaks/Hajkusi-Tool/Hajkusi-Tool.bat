@@ -62,8 +62,8 @@ if "%VERSION%" EQU "%VERSIONCHECK%" ( goto AlertEnglish
 	echo.
 	%SYSTEMROOT%\System32\choice.exe /c:YN /n /m "%DEL%                                >:"
 	set choice=%errorlevel%
-        If "%choice%"=="1" goto UpdateEnglish
-        If "%choice%"=="2" goto FailedEnglish
+        If "%choice%"=="1" goto:UpdateEnglish
+        If "%choice%"=="2" goto:FailedEnglish
 :UpdateEnglish
 Echo Updating
 curl -L -# -o "%USERPROFILE%/Downloads/Tweaks.Zip" "https://github.com/hajkusi/Hajkusi-Tool/releases/latest/download/Tweaks.zip"
@@ -102,8 +102,8 @@ if "%VERSION%" EQU "%VERSIONCHECK%" ( goto AlertPolish
 	echo.
 	%SYSTEMROOT%\System32\choice.exe /c:YN /n /m "%DEL%                                >:"
 	set choice=%errorlevel%
-        If "%choice%"=="1" goto UpdatePolish
-        If "%choice%"=="2" goto FailedPolish
+        If "%choice%"=="1" goto:UpdatePolish
+        If "%choice%"=="2" goto:FailedPolish
 :UpdatePolish
 Echo Aktualizowanie
 curl -L -# -o "%USERPROFILE%/Downloads/Tweaks.Zip" "https://github.com/hajkusi/Hajkusi-Tool/releases/latest/download/Tweaks.zip"
@@ -122,8 +122,8 @@ echo              %COL%[33m[%COL%[37m 1 %COL%[33m]%COL%[37m Polski              
 echo.
 %SYSTEMROOT%\System32\choice.exe /c:12 /n /m "%DEL%                             Select a corresponding number to the options above > "
 set choice=%errorlevel%
-If "%choice%"=="1" goto CheckForUpdatesPolish
-If "%choice%"=="2" goto CheckForUpdatesEnglish
+If "%choice%"=="1" goto:CheckForUpdatesPolish
+If "%choice%"=="2" goto:CheckForUpdatesEnglish
 
 :AlertEnglish
 cls
@@ -143,20 +143,18 @@ echo   Please Enter "I_Agree" Without Quotes To Continue:
 echo.
 echo.
 echo.
+Set /p "Input=%DEL%                                                            >: %COL%[92m"
 If %Input% EQU I_Agree ( goto DisclaimerEnglish ) else ( goto AlertEnglish )
 :DisclaimerEnglish
 reg add "HKCU\Software\Hajkusi-Tool" /v "Disclaimer" /f >nul 2>&1
 goto TitleEnglish
 
 :TitleEnglish
-chcp 65001 > nul
 Mode 130,45
-call:banner
 cls
 echo.
 echo                                        %COL%[90m Hajkusi-Tool Is A Free And Open-Source Desktop And Laptop Utility.
 echo                                        %COL%[90m Hajkusi-Tool Was Made To Improve Your Fps.
-chcp 852 > nul
 pause
 goto TweaksPG1English
 
@@ -186,7 +184,7 @@ goto TitlePolish
 
 :TitlePolish
 Mode 130,45
-call:banner
+pause
 cls
 echo.
 echo                                        %COL%[90m Hajkusi-Tool To Bezplatne Narzedzie Typu Open-Source Do Komputerow I Laptopow.
