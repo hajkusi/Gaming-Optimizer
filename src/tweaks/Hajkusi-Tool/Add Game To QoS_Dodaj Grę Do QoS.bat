@@ -40,9 +40,6 @@ for /f "tokens=* delims=\" %%i in ('FilePicker.exe exe') do (
     Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%%~ni%%~xi\PerfOptions" /v "IoPriority" /t REG_DWORD /d "3" /f
     Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%%~ni%%~xi\PerfOptions" /v "PagePriority" /t REG_DWORD /d "5" /f
     Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%%~ni%%~xi" /v "MaxLoaderThreads" /t REG_DWORD /d "%Threads%" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Control.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "3" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Control.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "3" /f
-    Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Control.exe\PerfOptions" /v "PagePriority" /t REG_DWORD /d "5" /f
     Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Control_DX11.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "3" /f
     Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Control_DX11.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "3" /f
     Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Control_DX11.exe\PerfOptions" /v "PagePriority" /t REG_DWORD /d "5" /f
