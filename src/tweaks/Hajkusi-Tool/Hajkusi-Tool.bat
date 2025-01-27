@@ -184,7 +184,6 @@ goto TitlePolish
 
 :TitlePolish
 Mode 130,45
-pause
 cls
 echo.
 echo                                        %COL%[90m Hajkusi-Tool To Bezplatne Narzedzie Typu Open-Source Do Komputerow I Laptopow.
